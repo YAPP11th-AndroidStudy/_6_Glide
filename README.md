@@ -1,4 +1,4 @@
-# 6. Glide
+# 5. Glide
   
 __이미지 로딩 라이브러리에서 큰 선호를 받고 있는 외부 라이브러리__  
 __Picasso__와 더불어 인지도가 높은 이미지 로딩 라이브러리
@@ -39,7 +39,11 @@ dependencies {
   annotationProcessor 'com.github.bumptech.glide:compiler:4.3.0'
 }</code></pre>
 
-#### 2. GlideModule 설정
+#### 2. Permission 설정
+<pre><code> // ManiFest.xml
+< uses-permission android:name="android.permission.INTERNET"/></code></pre>
+
+#### 3. GlideModule 설정
 Glide 4.x 버전에서 이 과정을 진행해주어야 추가적인 기능을 사용할 수 있다!  
 
 1. MyAppGlideModule 클래스를 생성한다.
@@ -133,6 +137,12 @@ GlideApp.with(context)
      .into(target);
 </code></pre>
 
-참고
-1. 박상권의 삽질 블로그 : http://gun0912.tistory.com/17
+
+#### 3. ErrorReport
+1. 반드시 Image 파일에 대한 URL만 인수로 넣을 것!  
+   이를 안 지킬 시 Failed to load resource Cause (1 of 6): 류의 에러를 볼 수 있다.  
+   (주의할 Image : webp 등)
+
+참고  
+1. 박상권의 삽질 블로그 : http://gun0912.tistory.com/17  
 2. 장범석님의 개발일지 : http://dktfrmaster.blogspot.kr/2016/09/glide.html
